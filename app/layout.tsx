@@ -1,1 +1,18 @@
-export default function RootLayout({ children }) { return (<html><body>{children}</body></html>)}
+import "./globals.css";
+
+export const metadata = {
+  title: "ONC Mold Components & Solutions",
+  description: "Website giới thiệu linh kiện tiêu chuẩn khuôn mẫu và giải pháp kỹ thuật của ONC.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="vi">
+      <body>{children}</body>
+    </html>
+  );
+}
