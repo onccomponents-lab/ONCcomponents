@@ -1,4 +1,3 @@
-\
 "use client";
 
 import Image from "next/image";
@@ -20,13 +19,14 @@ import {
   X,
 } from "lucide-react";
 import { useMemo, useState } from "react";
+import type { ReactNode } from "react";
 
 function Card({
   className = "",
   children,
 }: {
   className?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <div className={`rounded-[28px] border border-slate-200 bg-white ${className}`}>
@@ -42,7 +42,7 @@ function Button({
   className = "",
 }: {
   href?: string;
-  children: React.ReactNode;
+  children: ReactNode;
   variant?: "solid" | "outline";
   className?: string;
 }) {
@@ -459,19 +459,24 @@ export default function Page() {
                   Dụng cụ đánh bóng và gia công tinh theo catalog tiếng Việt
                 </h4>
                 <p className="mt-3 leading-7 text-slate-600">
-                  File GitHub-ready này đã tích hợp danh sách sản phẩm đánh bóng đã Việt hóa. PDF catalog gốc cũng được đính kèm trong thư mục public để bạn tiếp tục tách ảnh hoặc bổ sung chi tiết nếu cần.
+                  Danh mục đánh bóng đã tích hợp các dòng sản phẩm Việt hóa để khách hàng dễ nhận biết và lựa chọn theo nhu cầu gia công tinh bề mặt khuôn.
                 </p>
               </div>
 
               <div className="mt-8 grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
-                <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-6 text-sm leading-7 text-slate-600">
-                  File PDF gốc nằm tại:
-                  <div className="mt-2 rounded-xl bg-white px-4 py-3 font-mono text-xs text-slate-700">
-                    /public/images/catalog/polishing-catalog-source.pdf
-                  </div>
-                  Bạn có thể thay tiếp ảnh cắt riêng từng trang catalog vào thư mục:
-                  <div className="mt-2 rounded-xl bg-white px-4 py-3 font-mono text-xs text-slate-700">
-                    /public/images/catalog/
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                  <h5 className="text-lg font-bold text-slate-900">Nhóm sản phẩm đánh bóng tiêu biểu</h5>
+                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                    {[
+                      "Máy mài khí nén mini",
+                      "Máy rà khí nén turbo",
+                      "Máy mài khí nén đầu góc",
+                      "Bút khắc khí nén mini",
+                    ].map((item) => (
+                      <div key={item} className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700">
+                        {item}
+                      </div>
+                    ))}
                   </div>
                 </div>
 
