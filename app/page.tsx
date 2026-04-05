@@ -19,17 +19,20 @@ import {
   X,
 } from "lucide-react";
 import { useMemo, useState } from "react";
-import type { ReactNode } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 
 function Card({
   className = "",
   children,
-}: {
-  className?: string;
+  ...props
+}: HTMLAttributes<HTMLDivElement> & {
   children: ReactNode;
 }) {
   return (
-    <div className={`rounded-[28px] border border-slate-200 bg-white ${className}`}>
+    <div
+      className={`rounded-[28px] border border-slate-200 bg-white ${className}`}
+      {...props}
+    >
       {children}
     </div>
   );
@@ -231,6 +234,7 @@ export default function Page() {
         activeCategory === "Tất cả" ||
         product.category === activeCategory ||
         product.use.includes(activeCategory);
+
       const q = searchTerm.trim().toLowerCase();
       const matchesSearch =
         q.length === 0 ||
@@ -238,6 +242,7 @@ export default function Page() {
         product.category.toLowerCase().includes(q) ||
         product.use.toLowerCase().includes(q) ||
         product.standard.toLowerCase().includes(q);
+
       return matchesCategory && matchesSearch;
     });
   }, [activeCategory, searchTerm]);
@@ -245,10 +250,10 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-3">
-        <a href="tel:0387356896" className="rounded-full bg-red-600 p-3 text-white shadow-lg transition hover:scale-105">
+        <a href="tel:0387356896" className="rounded-full bg-red-600 p-3 text-white shadow-lg transition hover:scale-105" aria-label="Gọi điện">
           <Phone className="h-5 w-5" />
         </a>
-        <a href="#contact" className="rounded-full bg-slate-900 p-3 text-white shadow-lg transition hover:scale-105">
+        <a href="#contact" className="rounded-full bg-slate-900 p-3 text-white shadow-lg transition hover:scale-105" aria-label="Liên hệ">
           <MessageCircle className="h-5 w-5" />
         </a>
       </div>
@@ -456,7 +461,7 @@ export default function Page() {
                   Danh mục đánh bóng khuôn mẫu
                 </p>
                 <h4 className="mt-3 text-2xl font-bold md:text-3xl">
-                  Dụng cụ đánh bóng và gia công tinh theo catalog tiếng Việt
+                  Dụng cụ đánh bóng và gia công tinh
                 </h4>
                 <p className="mt-3 leading-7 text-slate-600">
                   Danh mục đánh bóng đã tích hợp các dòng sản phẩm Việt hóa để khách hàng dễ nhận biết và lựa chọn theo nhu cầu gia công tinh bề mặt khuôn.

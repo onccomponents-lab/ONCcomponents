@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
 import "./globals.css";
+import type { ReactNode } from "react";
 
 export const metadata = {
   title: "ONC Mold Components & Solutions",
@@ -8,9 +8,9 @@ export const metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: ReactNode;
-}>) {
+}) {
   return (
     <html lang="vi">
       <body>{children}</body>

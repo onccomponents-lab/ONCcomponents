@@ -1,5 +1,5 @@
 {
-  "name": "onc-github-ready",
+  "name": "onc-github-final",
   "private": true,
   "version": "1.0.0",
   "scripts": {
@@ -10,7 +10,7 @@
   "dependencies": {
     "framer-motion": "^11.3.19",
     "lucide-react": "^0.441.0",
-    "next": "14.2.13",
+    "next": "14.2.15",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
